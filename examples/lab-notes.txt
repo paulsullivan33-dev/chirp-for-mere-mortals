@@ -1,0 +1,169 @@
+The lab — one real install, two image files, no radios harmed
+====================================================================
+
+The lab is CHIRP as the project ships
+it, installed into a fresh virtual
+environment on the build machine (an
+Ubuntu 24.04 sandbox, 2 CPUs, 7.7 GB
+RAM), and exercised against radio
+test images from the CHIRP project's
+own test collection
+(tests/images/ in its repository):
+
+  * Baofeng_UV-5R.img (6,657 bytes)
+    -> chirp-lab/images/uv5r-factory.img:
+    128 channels, 37 of them
+    programmed in the project's
+    fixture.
+  * Kenwood_TH-D72_clone_mode.img
+    (65,536 bytes)
+    -> chirp-lab/images/thd72-factory.img.
+  * The plan: ten channels for the
+    fictional town of Millbrook
+    (chirp-lab/csv/millbrook-plan.csv),
+    all amateur-band frequencies,
+    invented repeaters, names of at
+    most seven characters.
+  * The exchange script
+    (chirp-lab/scripts/exchange_csv.py)
+    moves memories between an image
+    and a CSV using CHIRP's own CSV
+    driver, exactly as the window's
+    File > Export / Import do.
+
+The install, honestly (t00):
+
+  * pip install chirp from PyPI
+    FAILED on this machine. The
+    source tarball compiles a small
+    Fortran extension
+    (chirp.pitch._vitterbi) and dies
+    with: error: unknown file type
+    '.pyf' (from 'src/vitterbi.pyf')
+    -- the numpy-distutils build
+    chain it relies on is gone from
+    current numpy/setuptools, and
+    installing a Fortran compiler
+    did not revive it.
+  * The identical code was then
+    installed from the project's git
+    checkout (kk7ds/chirp @ 4e0d1ab),
+    whose setup.py builds nothing
+    for the command line: chirpc
+    works fully; the window (chirp)
+    would also want wxPython, which
+    the lab did not install, since it
+    drove the engine through chirpc
+    and the library.
+
+What the lab ran, in
+chirp-lab/transcripts/:
+
+  * t00 the install record: Python
+    3.12.3, the PyPI failure, the
+    source install, 564 models.
+  * t01 chirpc --list-radios, the
+    head and tail of 564 models.
+  * t02 the factory UV-5R image
+    listed: 37 programmed memories,
+    a mixed fixture biography --
+    amateur repeaters, simplex,
+    weather channels, 150 MHz
+    channels no amateur may transmit
+    on, and one split channel.
+  * t03 the same image's settings:
+    91 lines, groups 'basic' and
+    'advanced' (squelch:1,
+    timeout:30 sec, menu:True ...).
+  * t04 the image exported to CSV by
+    CHIRP's own code: 37 memories,
+    matching the listing exactly.
+  * t05 the Millbrook plan imported
+    into a working copy: "imported
+    10 memories". (The UV-5R driver
+    prints two Python
+    DeprecationWarnings per write;
+    they are kept in the transcript.
+    They are the driver's manners,
+    not errors.)
+  * t06 the working image read
+    back: locations 1-10 hold the
+    plan letter for letter; location
+    0 and channels from 25 on are
+    untouched.
+  * t07 the same plan into the
+    Kenwood image: 10 imported,
+    verified -- with one divergence:
+    the Kenwood stores the plan's
+    decode tone (c103.5) where the
+    Baofeng keeps 88.5; neither uses
+    it, both behave the same. The
+    Kenwood driver narrates its
+    memory-map writes ('dirty
+    blocks'); the transcript keeps
+    a trimmed sample.
+  * t08 chirpc editing an image
+    directly: --copy-mem 5 11, then
+    --set-mem-name "CALL B" 11,
+    verified by --get-mem 11.
+  * t09 the stock configurations
+    shipped in the package: 20 CSV
+    files; 'US Calling Frequencies'
+    loaded with CHIRP's own reader:
+    4 channels.
+  * t10 the round trip closed: the
+    working image exported again --
+    47 memories (37 + the plan's
+    10), the plan rows and the
+    chirpc edit (CALL B at 11) read
+    back exactly.
+  * t90 the sandbox's gift of a
+    trap: chirpc with stdin not a
+    terminal exits 0 and prints
+    NOTHING -- CHIRP redirects its
+    console to ~/.chirp/debug.log in
+    that situation (566 lines were
+    waiting there). CHIRP_TESTENV=1
+    keeps output on the console.
+
+The lab's own bugs, kept because
+readers will write the same code:
+
+  * Off by one: CHIRP's
+    memory_bounds are INCLUSIVE --
+    (0, 127) means channel 127
+    exists. The first version of
+    exchange_csv.py used range() on
+    them and exported 36 memories,
+    silently dropping channel 127
+    (VTAC13). The fix is one +1;
+    the lesson is in chapter 14's
+    spirit: count what a tool gives
+    back against what you saw.
+  * The plan's first import failed
+    twice before succeeding. First:
+    each data row had 20 columns
+    against the header's 21 ("Line
+    2 has 20 columns, expected
+    21"), and CHIRP loaded nothing.
+    Second, with the columns right:
+    an EMPTY Power column makes the
+    CSV reader reject every row
+    ("[power] Invalid power
+    specification: ''"), again
+    loading nothing ("No channels
+    found"). The plan now states
+    4.0W on every row. A fussy
+    reader is a gift: both times it
+    refused rather than guessed.
+
+Documented only (no radio or cable
+was attached to the build machine):
+the downloads and uploads
+themselves; cable chips, drivers
+and ports on real systems; the
+window's interactive use; the
+RepeaterBook online import; the
+on-air checks. Chapters 4, 5 and 10
+teach those moments from the
+project's documentation and say so.

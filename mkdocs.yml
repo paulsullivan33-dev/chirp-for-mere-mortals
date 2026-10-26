@@ -1,0 +1,28 @@
+site_name: CHIRP for Mere Mortals
+site_description: Programming amateur radios from a computer instead of their front panels. Downloading a radio's memory to a file, building a channel plan you can read and check by hand, and writing it back to the radio, with the licensing rules and the limits stated plainly.
+site_url: https://paulsullivan33-dev.github.io/chirp-for-mere-mortals/
+copyright: 'Part of <a href="https://paulsullivan33-dev.github.io/mere-mortals/">For Mere Mortals</a> · Text <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, code MIT'
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What CHIRP Is: what-chirp-is.md
+  - Memories and Banks: memories-and-banks.md
+  - Installing CHIRP: installing-chirp.md
+  - Cables and Drivers: cables-and-drivers.md
+  - Downloading from a Radio: downloading-from-a-radio.md
+  - Building a Channel Plan: building-a-channel-plan.md
+  - Importing Repeater Data: importing-repeater-data.md
+  - Stock Configurations: stock-configurations.md
+  - Settings Beyond Memories: settings-beyond-memories.md
+  - Uploading and Verifying: uploading-and-verifying.md
+  - The Same Plan on a Second Radio: a-second-radio.md
+  - The Neighbours: the-neighbours.md
+  - Limits: limits.md
+  - Troubleshooting: troubleshooting.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md

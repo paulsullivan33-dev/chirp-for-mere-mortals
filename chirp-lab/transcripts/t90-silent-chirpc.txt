@@ -1,0 +1,13 @@
+$ chirpc --list-radios        (stdin is not a terminal)
+(exit 0 -- and not one line of output on the console)
+
+$ grep -c "" ~/.chirp/debug.log
+566
+$ tail -2 ~/.chirp/debug.log
+	Zartek_ZA-758
+	Zastone_ZT-X6
+
+$ CHIRP_TESTENV=1 chirpc --list-radios | head -3
+Supported Radios:
+	 AOR_AR8200
+	ARRL_Travel_Plus

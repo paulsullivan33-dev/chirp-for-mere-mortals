@@ -1,0 +1,20 @@
+$ chirpc --mmap=uv5r-millbrook.img --list-mem   (first screen)
+Memory 0: 146.000000/0.000000 FM () r88.5  c88.5  d023 NN [5.00]
+Memory 1: 146.940000-0.600000 FM (MB R94) r88.5* c88.5  d023 NN [5.00]
+Memory 2: 147.330000+0.600000 FM (MB D33) r103.5* c88.5  d023 NN [5.00]
+Memory 3: 444.775000+5.000000 FM (MB U775) r131.8* c88.5  d023 NN [5.00]
+Memory 4: 443.600000+5.000000 FM (MB U360) r100.0* c88.5  d023 NN [5.00]
+Memory 5: 146.520000/0.000000 FM (CALL 52) r88.5  c88.5  d023 NN [5.00]
+Memory 6: 146.460000/0.000000 FM (MB TAC1) r88.5  c88.5  d023 NN [5.00]
+Memory 7: 147.540000/0.000000 FM (MB TAC2) r88.5  c88.5  d023 NN [5.00]
+Memory 8: 146.580000/0.000000 FM (MB EVNT) r141.3* c88.5  d023 NN [5.00]
+Memory 9: 446.000000/0.000000 FM (UHF CAL) r88.5  c88.5  d023 NN [5.00]
+Memory 10: 145.230000-0.600000 FM (MB R23) r67.0* c88.5  d023 NN [5.00]
+Memory 25: 443.000000+5.000000 FM (HTAC1) r88.5  c88.5  d023*NN [5.00]
+Memory 26: 147.380000+0.600000 FM (HTAC2) r100.0* c88.5  d023 NN [5.00]
+Memory 27: 147.440000/0.000000 FM (HTAC3) r88.5* c88.5  d023 NN [5.00]
+...
+$ chirpc --mmap=uv5r-millbrook.img --get-mem 2
+Memory 2: 147.330000+0.600000 FM (MB D33) r103.5* c88.5  d023 NN [5.00]
+$ chirpc --mmap=uv5r-millbrook.img --get-mem 3
+Memory 3: 444.775000+5.000000 FM (MB U775) r131.8* c88.5  d023 NN [5.00]

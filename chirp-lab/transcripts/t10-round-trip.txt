@@ -1,0 +1,9 @@
+$ python3 exchange_csv.py export images/uv5r-millbrook.img csv/uv5r-millbrook-export.csv
+exported 47 memories from /home/hatch/workspace/chirp-for-mere-mortals/chirp-lab/images/uv5r-millbrook.img to /home/hatch/workspace/chirp-for-mere-mortals/chirp-lab/csv/uv5r-millbrook-export.csv
+
+$ grep -E "^(1|2|3|10|11)," csv/uv5r-millbrook-export.csv
+1,MB R94,146.940000,-,0.600000,Tone,88.5,88.5,023,NN,023,Tone->Tone,FM,5.00,,4.0W,,,,,
+2,MB D33,147.330000,+,0.600000,Tone,103.5,88.5,023,NN,023,Tone->Tone,FM,5.00,,4.0W,,,,,
+3,MB U775,444.775000,+,5.000000,Tone,131.8,88.5,023,NN,023,Tone->Tone,FM,5.00,,4.0W,,,,,
+10,MB R23,145.230000,-,0.600000,Tone,67.0,88.5,023,NN,023,Tone->Tone,FM,5.00,,4.0W,,,,,
+11,CALL B,146.520000,,0.000000,,88.5,88.5,023,NN,023,Tone->Tone,FM,5.00,,4.0W,,,,,

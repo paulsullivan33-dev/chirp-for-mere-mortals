@@ -1,0 +1,6 @@
+$ python3 exchange_csv.py import csv/millbrook-plan.csv images/uv5r-millbrook.img
+/home/hatch/workspace/chirp-venv/lib/python3.12/site-packages/chirp/drivers/uv5r.py:1084: DeprecationWarning: Driver is using non-byte-native get_raw()
+  if _mem.get_raw(asbytes=False)[0] == "\xff":
+/home/hatch/workspace/chirp-venv/lib/python3.12/site-packages/chirp/drivers/uv5r.py:1095: DeprecationWarning: Driver is using non-byte-native set_raw()
+  _mem.set_raw("\x00" * 16)
+imported 10 memories from /home/hatch/workspace/chirp-for-mere-mortals/chirp-lab/csv/millbrook-plan.csv into /home/hatch/workspace/chirp-for-mere-mortals/chirp-lab/images/uv5r-millbrook.img

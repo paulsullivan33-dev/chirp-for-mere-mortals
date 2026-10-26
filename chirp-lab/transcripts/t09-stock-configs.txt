@@ -1,0 +1,23 @@
+$ ls chirp/stock_configs   (inside the installed package)
+AU NZ UHF Citizens Band.csv
+CA Calling Frequencies.csv
+CA FRS and GMRS Channels.csv
+DE Freenet Frequencies.csv
+EU LPD and PMR Channels.csv
+FR Marine VHF Channels.csv
+GR Marine VHF Channels.csv
+PL Calling Frequencies and Simplex.csv
+SE Jaktradio 155MHz.csv
+SE NO KDR444.csv
+UK Business Radio Simple Light Frequencies.csv
+US 60 meter channels (Center).csv
+... (20 files in all)
+
+$ head -5 "US Calling Frequencies.csv"
+Location,Name,Frequency,Duplex,Offset,Tone,rToneFreq,cToneFreq,DtcsCode,DtcsPolarity,Mode,TStep,Skip,Comment,URCALL,RPT1CALL,RPT2CALL
+1,6m Call,52.525000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,,,,
+2,2m Call,146.520000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,,,,
+3,220 Call,223.500000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,,,,
+4,70cm Call,446.000000,,0.000000,,88.5,88.5,023,NN,FM,5.00,,,,,
+$ python3 -c "load the stock CSV with CHIRP's own CSV reader and count"
+US Calling Frequencies.csv loads: 4 channels

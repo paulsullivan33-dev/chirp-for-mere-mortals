@@ -1,0 +1,91 @@
+$ chirpc --mmap=uv5r-factory.img --list-settings
+group 'basic': {
+	abr:4
+	beep:False
+	mdfa:Frequency
+	mdfb:Frequency
+	roger:False
+	rxled:Orange
+	save:1:2
+	squelch:1
+	timeout:30 sec
+	txled:Purple
+	wtled:Orange
+}
+group 'advanced': {
+	allrange:Default     
+	almod:Code
+	autolk:False
+	bcl:True
+	fmradio:True
+	menu:True
+	reset:True
+	rpste:5
+	rptrl:OFF
+	screv:CO
+	ste:True
+	tdr:True
+	tdrab:A
+	voice:False
+	vox:OFF
+}
+group 'other': {
+	firmware_msg.line1:  Ver  
+	firmware_msg.line2:BFB231 
+	limits_old.uhf.enable:True
+	limits_old.uhf.lower:400
+	limits_old.uhf.upper:500
+	limits_old.vhf.enable:True
+	limits_old.vhf.lower:136
+	limits_old.vhf.upper:173
+	ponmsg:Message
+	poweron_msg.line1:AllGood
+	poweron_msg.line2:Now    
+	sixpoweron_msg.line1:1203101
+	sixpoweron_msg.line2:VER-05 
+}
+group 'workmode': {
+	displayab:B
+	keylock:False
+	vfoa.freq:440.275000
+	vfoa.offset:0.600000  
+	vfoa.scode:1
+	vfoa.sftd:Off
+	vfoa.step:5.0
+	vfoa.txpower:Low
+	vfoa.widenarr:Wide
+	vfob.freq:470.675000
+	vfob.offset:0.000000  
+	vfob.scode:1
+	vfob.sftd:Off
+	vfob.step:25.0
+	vfob.txpower:High
+	vfob.widenarr:Wide
+	wmchannel.mrcha:50
+	wmchannel.mrchb:25
+	workmode:Frequency
+}
+group 'dtmf': {
+	ani.alarmcode:119
+	ani.aniid:EOT
+	ani.code:80808
+	ani.dtmfoff:80 ms
+	ani.dtmfon:80 ms
+	dtmfst:OFF
+	pttid/0.code:20202
+	pttid/1.code:
+	pttid/10.code:
+	pttid/11.code:
+	pttid/12.code:
+	pttid/13.code:
+	pttid/14.code:30303
+	pttid/2.code:
+	pttid/3.code:
+	pttid/4.code:
+	pttid/5.code:
+	pttid/6.code:
+	pttid/7.code:
+	pttid/8.code:
+	pttid/9.code:
+	pttlt:5
+}

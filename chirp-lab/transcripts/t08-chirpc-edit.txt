@@ -1,0 +1,12 @@
+$ chirpc --mmap=uv5r-millbrook.img --copy-mem 5 11
+/home/hatch/workspace/chirp-venv/lib/python3.12/site-packages/chirp/drivers/uv5r.py:1084: DeprecationWarning: Driver is using non-byte-native get_raw()
+  if _mem.get_raw(asbytes=False)[0] == "\xff":
+/home/hatch/workspace/chirp-venv/lib/python3.12/site-packages/chirp/drivers/uv5r.py:1095: DeprecationWarning: Driver is using non-byte-native set_raw()
+  _mem.set_raw("\x00" * 16)
+$ chirpc --mmap=uv5r-millbrook.img --set-mem-name="CALL B" 11
+/home/hatch/workspace/chirp-venv/lib/python3.12/site-packages/chirp/drivers/uv5r.py:1084: DeprecationWarning: Driver is using non-byte-native get_raw()
+  if _mem.get_raw(asbytes=False)[0] == "\xff":
+/home/hatch/workspace/chirp-venv/lib/python3.12/site-packages/chirp/drivers/uv5r.py:1095: DeprecationWarning: Driver is using non-byte-native set_raw()
+  _mem.set_raw("\x00" * 16)
+$ chirpc --mmap=uv5r-millbrook.img --get-mem 11
+Memory 11: 146.520000/0.000000 FM (CALL B) r88.5  c88.5  d023 NN [5.00]

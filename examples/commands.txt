@@ -1,0 +1,73 @@
+CHIRP — the distilled commands
+====================================================================
+Placeholders: <img> is a radio image
+file; <plan.csv> is a channel plan in
+CHIRP's CSV format. In a script, set
+CHIRP_TESTENV=1 or chirpc's output
+goes to its debug log (chapter 14).
+
+INSTALL AND FIRST LOOK (chapters 3, 1)
+--------------------------------------------------------------------
+  # the supported route: the unified
+  # build from chirpmyradio.com
+  # the developer route, where pip
+  # builds cleanly:
+  python3 -m venv chirp-venv
+  chirp-venv/bin/pip install chirp
+  chirp-venv/bin/chirpc --list-radios
+                                   # 564 models in the lab
+
+THE GOLDEN RULE (chapter 5)
+--------------------------------------------------------------------
+  # download in the window: Radio ->
+  # Download From Radio; then SAVE,
+  # and work only on a copy:
+  cp uv5r-factory.img uv5r-working.img
+  # chirpc's download (a real radio,
+  # a real port -- documented only
+  # in this guide's lab):
+  chirpc -r Baofeng_UV-5R --serial=COM5 \
+         --mmap=uv5r-factory.img --download-mmap
+
+READING AN IMAGE (chapters 5, 9)
+--------------------------------------------------------------------
+  chirpc --mmap=<img> --list-mem   # programmed channels
+  chirpc --mmap=<img> --list-mem --verbose
+                                   # ... including empty ones
+  chirpc --mmap=<img> --get-mem 2  # one channel, whole
+  chirpc --mmap=<img> --list-settings
+                                   # the rest of the image
+
+PLANS AND CSV (chapters 6-8)
+--------------------------------------------------------------------
+  # the lab's exchange script uses
+  # CHIRP's own CSV code both ways:
+  python3 exchange_csv.py export <img> out.csv
+  python3 exchange_csv.py import <plan.csv> <img>
+  # in the window: File -> Export /
+  # File -> Import, and File -> Open
+  # Stock Config for the shipped sets
+
+EDITING WITH CHIRPC (chapter 10)
+--------------------------------------------------------------------
+  chirpc --mmap=<img> --copy-mem 5 11
+  chirpc --mmap=<img> --set-mem-name="CALL B" 11
+  chirpc --mmap=<img> --clear-mem 11
+                                   # all edits are in place:
+                                   # work on a copy, always
+
+UPLOAD AND VERIFY (chapter 10)
+--------------------------------------------------------------------
+  chirpc -r Baofeng_UV-5R --serial=COM5 \
+         --mmap=uv5r-working.img --upload-mmap
+  # then download AGAIN into a verify
+  # image and export it: the rows you
+  # read back are the proof, not the
+  # progress bar
+
+WHEN IT SAYS NOTHING (chapter 14)
+--------------------------------------------------------------------
+  tail ~/.chirp/debug.log          # where scripted chirpc
+                                   # output actually went
+  CHIRP_TESTENV=1 chirpc ...       # ... or keep it on the
+                                   # console in the first place

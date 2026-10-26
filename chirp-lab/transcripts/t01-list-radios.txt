@@ -1,0 +1,17 @@
+$ CHIRP_TESTENV=1 chirpc --list-radios
+Supported Radios:
+	 AOR_AR8200
+	ARRL_Travel_Plus
+	Abbree_AR-518
+	Abbree_AR-63
+	Abbree_AR-730
+	Abbree_AR-869
+	Abbree_AR-F5
+	Alinco_DJ-G7EG
+	Alinco_DJ-G7T
+	Alinco_DJ175
+	Alinco_DJ596
+...
+	Yedro_YC-M04VUS
+	Zartek_ZA-758
+	Zastone_ZT-X6

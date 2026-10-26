@@ -1,0 +1,20 @@
+$ cp images/thd72-factory.img images/thd72-millbrook.img
+$ python3 exchange_csv.py import csv/millbrook-plan.csv images/thd72-millbrook.img
+  mmap.set_raw("\x00\xc8\xb3\x08\x00\x01\x00\x08"
+dirty blocks:  [12]
+dirty blocks:  [12, 21]
+[... the Kenwood driver repeats its 'dirty blocks' line once per memory written ...]
+imported 10 memories from /home/hatch/workspace/chirp-for-mere-mortals/chirp-lab/csv/millbrook-plan.csv into /home/hatch/workspace/chirp-for-mere-mortals/chirp-lab/images/thd72-millbrook.img
+
+$ chirpc --mmap=thd72-millbrook.img --list-mem   (first screen)
+Memory 0: 144.350000/0.600000 FM () r100.0  c88.5  d023 NN [5.00]
+Memory 1: 146.940000-0.600000 FM (MB R94) r88.5* c88.5  d023 NN [5.00]
+Memory 2: 147.330000+0.600000 FM (MB D33) r103.5* c103.5  d023 NN [5.00]
+Memory 3: 444.775000+5.000000 FM (MB U775) r131.8* c131.8  d023 NN [5.00]
+Memory 4: 443.600000+5.000000 FM (MB U360) r100.0* c100.0  d023 NN [5.00]
+Memory 5: 146.520000/0.000000 FM (CALL 52) r88.5  c88.5  d023 NN [5.00]
+Memory 6: 146.460000/0.000000 FM (MB TAC1) r88.5  c88.5  d023 NN [5.00]
+Memory 7: 147.540000/0.000000 FM (MB TAC2) r88.5  c88.5  d023 NN [5.00]
+Memory 8: 146.580000/0.000000 FM (MB EVNT) r141.3* c141.3  d023 NN [5.00]
+Memory 9: 446.000000/0.000000 FM (UHF CAL) r88.5  c88.5  d023 NN [5.00]
+Memory 10: 145.230000-0.600000 FM (MB R23) r67.0* c67.0  d023 NN [5.00]

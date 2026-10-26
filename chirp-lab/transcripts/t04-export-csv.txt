@@ -1,0 +1,15 @@
+$ python3 exchange_csv.py export images/uv5r-factory.img csv/uv5r-export.csv
+exported 37 memories from /home/hatch/workspace/chirp-for-mere-mortals/chirp-lab/images/uv5r-factory.img to /home/hatch/workspace/chirp-for-mere-mortals/chirp-lab/csv/uv5r-export.csv
+
+$ head -8 csv/uv5r-export.csv
+Location,Name,Frequency,Duplex,Offset,Tone,rToneFreq,cToneFreq,DtcsCode,DtcsPolarity,RxDtcsCode,CrossMode,Mode,TStep,Skip,Power,Comment,URCALL,RPT1CALL,RPT2CALL,DVCODE
+0,,146.000000,,0.000000,,88.5,88.5,023,NN,023,Tone->Tone,FM,5.00,,4.0W,,,,,
+1,,146.000000,split,446.000000,,88.5,88.5,023,NN,023,Tone->Tone,FM,5.00,,4.0W,,,,,
+25,HTAC1,443.000000,+,5.000000,DTCS,88.5,88.5,023,NN,023,Tone->Tone,FM,5.00,,1.0W,,,,,
+26,HTAC2,147.380000,+,0.600000,Tone,100.0,88.5,023,NN,023,Tone->Tone,FM,5.00,,1.0W,,,,,
+27,HTAC3,147.440000,,0.000000,Tone,88.5,88.5,023,NN,023,Tone->Tone,FM,5.00,,1.0W,,,,,
+28,HTAC4,441.550000,+,5.000000,Tone,88.5,88.5,023,NN,023,Tone->Tone,FM,5.00,,1.0W,,,,,
+29,HTAC5,442.925000,+,5.000000,Tone,107.2,88.5,023,NN,023,Tone->Tone,FM,5.00,,1.0W,,,,,
+
+$ wc -l csv/uv5r-export.csv   (header plus one row per memory)
+38 /home/hatch/workspace/chirp-for-mere-mortals/chirp-lab/csv/uv5r-export.csv

@@ -1,0 +1,17 @@
+Lab install record -- 2026-10-26
+
+$ python3 --version
+Python 3.12.3
+$ pip install chirp        (from PyPI, in the venv)
+FAILS in this sandbox: the PyPI source tarball compiles a small
+Fortran extension (chirp.pitch._vitterbi) and its build chain
+no longer works with current numpy/setuptools -- the build dies
+with: error: unknown file type '.pyf' (from 'src/vitterbi.pyf')
+
+$ pip install ./chirp-src  (the project git checkout instead)
+Successfully installed certifi-2026.10.23 charset_normalizer-3.5.2 chirp-0 idna-3.20 lark-1.3.1 pyserial-3.5 requests-2.34.2 suds-1.2.0 urllib3-2.8.0 yattag-1.16.1
+chirp source: github.com/kk7ds/chirp @ 4e0d1ab 2026-10-25
+
+$ CHIRP_TESTENV=1 chirpc --list-radios | grep -c "^	"
+564
+(radio models listed; see t01)
